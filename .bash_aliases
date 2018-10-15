@@ -1,4 +1,5 @@
 ## bashmarks is like my old go command
+## https://github.com/huyng/bashmarks
 source ~/.local/bin/bashmarks.sh
 
 alias md='pandoc coldstart-procs.md |lynx -stdin'
