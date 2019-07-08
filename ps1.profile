@@ -10,7 +10,12 @@ export PROMPT_DIRTRIM=2
 
 
 #Set prompt to indicate shell, user, host, and dir
-if [ "$USER" = "banzlova" ]; then
+if [ "$USER" = "rca" ]; then
+    r="\[\033[01;38;5;1m\]r"
+    c="\[\033[01;38;5;11m\]c"
+    a="\[\033[01;38;5;18m\]a"
+    __user__="$r$c$a"
+elif [ "$USER" = "banzlova" ]; then
     b="\[\033[01;38;5;52m\]b"
     a="\[\033[01;38;5;124m\]a"
     n="\[\033[01;38;5;196m\]n"
@@ -18,18 +23,19 @@ if [ "$USER" = "banzlova" ]; then
     l="\[\033[01;38;5;208m\]l"
     o="\[\033[01;38;5;214m\]o"
     v="\[\033[01;38;5;220m\]v"
-    a2="\[\033[01;38;5;226m\]a"
     __user__="$b$a$n$z$l$o$v$a2"
-elif [ "$USER" = "rcanzlovar" ]; then
-    b="\[\033[01;38;5;52m\]b"
-    a="\[\033[01;38;5;124m\]a"
-    n="\[\033[01;38;5;196m\]n"
-    z="\[\033[01;38;5;202m\]z"
-    l="\[\033[01;38;5;208m\]l"
+elif [ "$USER" = "banzlova" ]; then
+    r="\[\033[01;38;5;52m\]r"
+    c="\[\033[01;38;5;124m\]c"
+    a="\[\033[01;38;5;196m\]a"
+    n="\[\033[01;38;5;202m\]n"
+    z="\[\033[01;38;5;208m\]z"
+    l="\[\033[01;38;5;210m\]l"
     o="\[\033[01;38;5;214m\]o"
     v="\[\033[01;38;5;220m\]v"
-    a2="\[\033[01;38;5;226m\]a"
-    __user__="$b$a$n$z$l$o$v$a2"
+    a2="\[\033[01;38;5;223m\]a"
+    r2="\[\033[01;38;5;226m\]r"
+    __user__="$r$c$a$n$z$l$o$v$a2$r2"
 else
     __user__="\[\033[01;36m\]\u"
 fi
@@ -55,7 +61,7 @@ fi
 HOSTSTRING=
 case $HOSTNAME in 
 	BANZLOVA-US) HOSTSTRING='\[\033[01;38;5;208m\]\h';;
-	co-rcalab-01) HOSTSTRING='\[\033[01;38;5;1m\]\h';;
+	co-rcalab-01) HOSTSTRING='\[\033[01;38;5;14m\]\h';;
 	*) HOSTSTRING='\[\033[01;38;5;38m\]\h';;
 esac
 
