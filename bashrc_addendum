@@ -1,0 +1,8 @@
+# Load from .d.
+# These lines should be appended to your .bashrc
+if [[ -d ~/.d ]]; then
+  for profile in $HOME/.d/*.profile; do
+    source $profile
+  done
+  unset profile;
+fi
