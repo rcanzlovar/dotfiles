@@ -1,4 +1,6 @@
 
+# ssh to host with VPN tunnel for VNC
+alias hputunnel="ssh -p 2222  -L 5901:localhost:5901 rca@192.168.23.45"
 # get a quick overview of what's on this box
 alias show-systeminfo="ifconfig -a; grep MemTotal: /proc/meminfo; uname -r; grep model.name /proc/cpuinfo"
 
