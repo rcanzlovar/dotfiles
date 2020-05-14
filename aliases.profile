@@ -73,7 +73,6 @@ function fawk {
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
 # Colors for All grep commands such as grep, egrep and zgrep
-export GREP_OPTIONS='--color=auto'
 
 # Git related
 alias gs='git status'
