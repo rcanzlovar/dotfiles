@@ -68,7 +68,7 @@ case $HOSTNAME in
 	edgar) HOSTSTRING='\[\033[01;38;5;16m\]\h';;
 	colossus) HOSTSTRING='\[\033[01;38;5;24m\]\h';;
 	*blue*) HOSTSTRING='\[\033[01;38;5;97m\]\h';;
-	gator) HOSTSTRING='\[\033[01;38;5;114m\]\h';;
+	*gator*) HOSTSTRING='\[\033[01;38;5;114m\]\h';;
 	*) HOSTSTRING='\[\033[01;38;5;38m\]\h';;
 esac
 DATESTRING='\[\e[0;33m\]\D{%a, %e-%b-%Y %k:%M:%S %Z %z}\[\e[0m\]'
