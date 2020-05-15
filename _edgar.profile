@@ -8,3 +8,6 @@ alias livecam=" gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM),widt
 alias ,tfversion="python3 -c 'import tensorflow as tf; print(tf.__version__)'"
 alias ,cvversion="python3 -c 'import cv2; print(cv2.__version__)'"
 #python3 -c 'import tensorflow as tf; print(tf.__version__)'
+
+# make jupyter available remotely
+alias jupystart="cd ~/Projects/;jupyter notebook --no-browser --port=8891 &"
