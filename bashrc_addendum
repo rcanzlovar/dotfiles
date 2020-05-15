@@ -1,8 +1,23 @@
 # Load from .d.
+# optionally run files that start with _ if they match the current 
+# hostname for local hacks
 # These lines should be appended to your .bashrc
 if [[ -d ~/.d ]]; then
-  for profile in $HOME/.d/*.profile; do
-    source $profile
-  done
-  unset profile;
+    for profile in $HOME/.d/*.profile; do
+        thing=$(basename ${profile})
+	if [ "_" != ${thing:0:1} ]; then
+	    source ${profile}
+	else
+	    # get everythihng after the underscore
+	    thing=${thing:1}
+	    # get just the file name
+	    thing="${thing%.*}"
+	    # check if it matches this host, else skip it
+	    if [ $thing == $(hostname) ]; then
+	        source ${profile}
+	    fi
+	fi
+    done
+    unset profile;
+    unset thing;
 fi
