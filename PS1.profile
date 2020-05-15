@@ -63,7 +63,10 @@ HOSTSTRING=
 case $HOSTNAME in 
 	penguin) HOSTSTRING='\[\033[01;38;5;208m\]\h';;
 	homenas) HOSTSTRING='\[\033[01;38;5;130m\]\h';;
-	*buntu*) HOSTSTRING='\[\033[01;38;5;14m\]\h';;
+	huey) HOSTSTRING='\[\033[01;38;5;120m\]\h';;
+	hal) HOSTSTRING='\[\033[01;38;5;14m\]\h';;
+	edgar) HOSTSTRING='\[\033[01;38;5;16m\]\h';;
+	colossus) HOSTSTRING='\[\033[01;38;5;24m\]\h';;
 	*blue*) HOSTSTRING='\[\033[01;38;5;97m\]\h';;
 	gator) HOSTSTRING='\[\033[01;38;5;114m\]\h';;
 	*) HOSTSTRING='\[\033[01;38;5;38m\]\h';;
