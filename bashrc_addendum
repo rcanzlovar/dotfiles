@@ -6,15 +6,15 @@ if [[ -d ~/.d ]]; then
     for profile in $HOME/.d/*.profile; do
         thing=$(basename ${profile})
 	if [ "_" != ${thing:0:1} ]; then
-	    echo source ${profile}
+	    source ${profile}
 	else
-		# get everythihng after the underscore
+	    # get everythihng after the underscore
 	    thing=${thing:1}
 	    # get just the file name
 	    thing="${thing%.*}"
 	    # check if it matches this host, else skip it
 	    if [ $thing == $(hostname) ]; then
-	        echo source ${profile}
+	        source ${profile}
 	    fi
 	fi
     done
