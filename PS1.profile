@@ -65,7 +65,7 @@ case $HOSTNAME in
 	homenas) HOSTSTRING='\[\033[01;38;5;130m\]\h';;
 	huey) HOSTSTRING='\[\033[01;38;5;120m\]\h';;
 	hal) HOSTSTRING='\[\033[01;38;5;14m\]\h';;
-	edgar) HOSTSTRING='\[\033[01;38;5;16m\]\h';;
+	edgar) HOSTSTRING='\[\033[01;38;5;9m\]\h';;
 	colossus) HOSTSTRING='\[\033[01;38;5;24m\]\h';;
 	*blue*) HOSTSTRING='\[\033[01;38;5;97m\]\h';;
 	*gator*) HOSTSTRING='\[\033[01;38;5;114m\]\h';;
