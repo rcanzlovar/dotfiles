@@ -4,7 +4,7 @@
 # local machine connecting to edgar
 
 #localhost port 8888
-alias jupystart="cd ~/Projects/;jupyter notebook --port=8888 &"
+alias jupylocal="cd ~/Projects/;jupyter notebook --port=8888 &"
 
 #huey port 8892
 alias jupystarthuey="cd ~/Projects/;jupyter notebook --no-browser --port=8892 &"
