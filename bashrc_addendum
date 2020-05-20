@@ -12,6 +12,7 @@ if [[ -d ~/.d ]]; then
     for profile in $HOME/.d/*.profile; do
         thing=$(basename ${profile})
 	if [ "_" != ${thing:0:1} ]; then
+	    # normal ones, not related to a host
 	    source ${profile}
 	else
 	    # get everythihng after the underscore
