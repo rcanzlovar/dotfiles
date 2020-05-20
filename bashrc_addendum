@@ -1,7 +1,13 @@
+# ~/.d/bashrc_addendum - run the .d profile scripts
 # Load from .d.
 # optionally run files that start with _ if they match the current 
 # hostname for local hacks
 # These lines should be appended to your .bashrc
+# Load from .d.
+##  if [[ -d ~/.d && -f .d/bashrc_addendum ]]; then
+##      . .d/bashrc_addendum
+##  fi
+
 if [[ -d ~/.d ]]; then
     for profile in $HOME/.d/*.profile; do
         thing=$(basename ${profile})
