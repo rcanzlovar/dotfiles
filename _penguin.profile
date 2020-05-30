@@ -1,6 +1,6 @@
 
 # >>> conda initialize >>>
-export PATH="/home/rca/anaconda3/bin/:$PATH"
+export PATH="/home/rcanzlovar/anaconda3/bin/:$PATH"
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/rcanzlovar/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
