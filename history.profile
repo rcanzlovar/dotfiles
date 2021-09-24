@@ -5,5 +5,12 @@ export HISTFILESIZE=
 export HISTIGNORE="bg*:fg*:history*"
 export HISTTIMEFORMAT="%F %T "
 
+
+
 # allow history to append from multiple sources 
 shopt -s histappend
+
+
+# do a quich history save on the way out
+trap hs EXIT
+

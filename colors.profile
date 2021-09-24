@@ -12,4 +12,8 @@
 #Black = 30
 #Dark Grey= 1;30
 
-LS_COLORS=$LS_COLORS:'di=1;33:ln=36' ; export LS_COLORS;
+#LS_COLORS=$LS_COLORS:'di=1;33:ln=36' ; export LS_COLORS;
+COLORFILE=/home/rca/.local/share/lscolors.sh
+if [[ -f $COLORFILE ]]; then
+   . $COLORFILE
+fi

@@ -11,7 +11,3 @@ alias ,cvversion="python3 -c 'import cv2; print(cv2.__version__)'"
 
 # make jupyter available remotely
 alias jupystart="cd ~/Projects/;jupyter notebook --no-browser --port=8891 &"
-# set up docker related aliases
-
-alias mldocker="sudo docker run -it --rm --runtime nvidia --network host -v /home/rca/Projects/:/home/share nvcr.io/nvidia/l4t-ml:r32.4.2-py3"
-

@@ -1,0 +1,9 @@
+
+# Load from .d.
+if [[ -d ~/.d ]]; then
+  for profile in $HOME/.d/*.profile; do
+    source $profile
+  done
+  unset profile;
+fi
+
