@@ -1,3 +1,6 @@
 
 # export GOPATH=$HOME/go
-export GOPATH=/home/banzlova/go
+export GOPATH=/home/rca/go
+
+
+export PATH=$PATH:/usr/local/go/bin

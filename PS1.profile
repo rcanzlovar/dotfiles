@@ -8,6 +8,8 @@
 # 2 means we show the current dir and one above 
 export PROMPT_DIRTRIM=3
 
+RELEASE="\[\033[01;38;5;50m\] `lsb_release -d| awk ' { for (i=2; i<=NF; i++)   printf  $i" " }'; `" 
+UNAME="\[\033[01;38;5;40m\]`uname -m`" 
 
 #Set prompt to indicate shell, user, host, and dir
 if [ "$USER" = "rca" ]; then
@@ -75,10 +77,11 @@ DATESTRING='\[\e[0;33m\]\D{%a, %e-%b-%Y %k:%M:%S %Z %z}\[\e[0m\]'
 LOCSTRING='\[\e[0;40m\]\w\[\e[0m\]'
 LOCSTRING='\[\e[0;31m\]\w\[\e[0m\]'
 LOCSTRING='\[\e[01;34m\]\w\[\e[0m\]'
+ENDSTRING='\[\e[0m\]'
 # 3 = italics
 # 4 = underline
 # 5 = blink
 
-export PS1="$DATESTRING\n$__user__\[\033[01;38;5;46m\]@$HOSTSTRING\[\033[01;38;5;38m\]:$LOCSTRING\n\$ "
+export PS1="$DATESTRING\n$__user__\[\033[01;38;5;46m\]@$HOSTSTRING\[\033[01;38;5;38m\]:$LOCSTRING $RELEASE $UNAME$ENDSTRING\n\$ "
 
 #PS1="\s \u \h:\w\$ "

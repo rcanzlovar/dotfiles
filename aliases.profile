@@ -45,13 +45,34 @@ alias .....="cd ../../../.."
 
 
 # Common variations of 'ls' command
-alias ll="ls -l"
-alias lo="ls -o"
-alias lh="ls -lh"
-alias la="ls -la"
-alias sl="ls"
-#alias l="ls"
-#alias s="ls"
+alias lo="ls -o --color=always"
+alias la="ls -la --color=always"
+alias sl="ls --color=always"
+alias ll='ls -aFGlhtu --color=always'
+alias ls='ls -FGlhtu --color=always'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ..ll='cd .. && ll'
+alias ascii='man ascii'
+alias c='clear'
+alias edit_profile='vim ~/.bash_profile'
+#alias reload_profile='source ~/.bash_profile'
+
+# Navigation
+alias home='cd ~'
+alias dev='cd ~/Developer'
+alias proj='cd ~/Projects'
+alias rm='rm -i'
+alias cp='cp -i'
+alias desktop='cd ~/Desktop'
+alias onedrive='cd ~/OneDrive'
+
+
+# Dev
+alias proc='ps -eo pid,user,uid,group,gid,vsz,rss,comm | less'
+alias python_procs='ps aux | grep python'
 
 #List people in a Twitch channel chat
 function twitch_list() { curl -s "https://tmi.twitch.tv/group/user/$1/chatters" | less; }

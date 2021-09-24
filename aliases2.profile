@@ -1,6 +1,7 @@
 
-alias md='pandoc coldstart-procs.md |lynx -stdin'
+# who needs to use sudo to install shit
 alias yum='sudo yum'
+alias apt='sudo apt'
 
 # hs - save history to a dated file 
 # cl - change log - writes host-specific change file by date, comment time stamped inside
@@ -14,16 +15,35 @@ alias ms='export STATUSFILE=$CHANGELOG_DIR/status-\$(date "+%Y%m%d").txt; touch 
 
 
 # howto snippets.. ht by itself goes to default, 'ht foo' adds or creates a foo howto file 
-alias ht='function __myalias() { if [[ -n $1 ]] ; then howto=$1.md; else howto="default"; fi; local HOWTOFILE="~/howto/$howto";vim  $HOWTOFILE; unset -f __myalias;unset -v howto;return $myresult; }; __myalias'
+alias ht='function __myalias() { 
+    if [[ -n $1 ]] ; 
+    then howto=$1.md; 
+    else howto="default.md"; 
+    fi; 
+    local HOWTOFILE="$HOME/howto/$howto";
+    vim  $HOWTOFILE; 
+    unset -f __myalias;
+    unset -v howto;
+    return $myresult; 
+    }; 
+    __myalias'
+
+alias md='function __myalias() {
+    if [[ -n $1 ]] ;
+    then displayfile=$1;
+    else break; fi; 
+    pandoc $displayfile |lynx -stdin
+    unset -f __myalias;
+    unset -v displayfile; }; __myalias'
 
 alias mdd='function __myalias() { 
-	if [[ -n $1 ]] ; 
-	then howto=$1.md; 
-	else howto="default"; fi; 
-	local HOWTOFILE=~/howto/$howto;pandoc  $HOWTOFILE| lynx -stdin; 
-	unset -f __myalias;
-	unset -v howto;
-	return $myresult; }; __myalias'
+    if [[ -n $1 ]] ; 
+    then howto=$1.md; 
+    else howto="default.md"; fi; 
+    local HOWTOFILE=~/howto/$howto;pandoc  $HOWTOFILE| lynx -stdin; 
+    unset -f __myalias;
+    unset -v howto;
+    return $myresult; }; __myalias'
 
 
 alias diary='function __mydiary() { 
