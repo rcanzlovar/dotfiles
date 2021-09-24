@@ -17,3 +17,5 @@ alias getmtv='cd ~/Videos/mealtimevideos;curl -s -H "User-Agent: cli:bash:v0.0.0
 
 listen-to-yt() { if [[ -z "$1" ]]; then echo "Enter a search string!"; else mpv "$(youtube-dl --default-search 'ytsearch1:' \"$1\" --get-url | tail -1)"; fi }
 
+alias ytmovie=" youtube-dl  --format bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best "
+
