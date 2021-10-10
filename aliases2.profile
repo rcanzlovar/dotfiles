@@ -7,8 +7,8 @@ alias apt='sudo apt'
 # cl - change log - writes host-specific change file by date, comment time stamped inside
 # ms - my status - writes change file by date, comment time stamped inside with host nae 
 
-CHANGELOG_DIR="~/.changelog"
-[  -d $CHANGELOG_DIR ] && mkdir $CHANGELOG_DIR
+CHANGELOG_DIR="$HOME/.changelog/"
+[  -d $CHANGELOG_DIR ] || mkdir $CHANGELOG_DIR
 alias hs="history > $CHANGELOG_DIR/.hist-\$( date '+%Y%m%d%H%M' )-\$( uname -n ).txt"
 alias cl='export CHANGEFILE=$CHANGELOG_DIR/change-\$(date "+%Y%m%d")-\$(uname -n).txt; touch $CHANGEFILE;printf "\n# "\$(uname -n)" "\$(date "+%Y-%m-%d-%H:%M") >>$CHANGEFILE; vim $CHANGEFILE'
 alias ms='export STATUSFILE=$CHANGELOG_DIR/status-\$(date "+%Y%m%d").txt; touch $STATUSFILE;printf "\n# "\$(uname -n)" "\$(date "+%Y-%m-%d-%H:%M") >>$STATUSFILE; vim $STATUSFILE'
