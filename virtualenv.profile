@@ -23,8 +23,8 @@ fi
 if [ do_install == 1  ]
 then
 echo "you should install virtualenv and virtulenvwrapper"
-else
-echo "you're good to go"
+#else
+#echo "you're good to go"
 fi
 
 FILE=/usr/local/bin/virtualenvwrapper.sh
