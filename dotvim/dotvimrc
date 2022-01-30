@@ -1,0 +1,86 @@
+color slate
+
+" make the mouse do the scrolling
+set mouse=a
+"" CIA tips for VI from wikileaks https://wikileaks.org/ciav7p1/cms/files/vim_revisited.pdf
+"" minimal .vimrc below
+set nocompatible "choose nocompatibility with legacy vi
+set history=10000
+
+set autoindent
+set number
+
+"#############################
+"When viewing/editing a folded file, it is often needed to inspect/close some fold. 
+"To speed up these operation use the following (put in your $HOME/.vimrc): 
+
+" Toggle fold state between closed and opened. 
+" 
+" If there is no fold at current line, just moves forward. 
+" If it is present, reverse it's state. 
+fun! ToggleFold() 
+if foldlevel('.') == 0 
+normal! l 
+else 
+if foldclosed('.') < 0 
+. foldclose 
+else 
+. foldopen 
+endif 
+endif 
+" Clear status line 
+echo 
+endfun 
+
+" Map this function to Space key. 
+noremap <space> :call ToggleFold()<CR> 
+"#############################
+
+
+
+" syntax enable
+" set encoding=utf-8
+" set showcmd "display incomplete commands
+" filetype plugin indent on "load filetype plugins+ indentation
+""Whitespace
+ set nowrap "don't wrap lines
+ set tabstop=4 shiftwidth=4 "a tab is two spaces (or set this to 4)
+
+" set expandtab "use spaces,not tabs (optional)
+" set backspace=indent,eol,start "backspace through everything in insert mode
+""Searching
+"set hlsearch "highlight matches 
+"set incsearch "incremental searching
+"set ignorecase "searches are case insensitive...
+"set smartcase "...unless they contain at least one capital letter
+"set number      " line numbers
+"set autoindent  "automatically indent the same as the last line
+
+" 
+" https://www.hillelwayne.com/post/intermediate-vim/
+" 
+" things that apply only to markdown  .md files
+augroup md
+  autocmd!
+" Highligh TODO like it is syntax
+  au BufNewFile,BufRead *.md syntax keyword todo TODO
+" type ;` to make brackets around fixed-text like commands
+  au BufNewFile,BufRead *.md inoremap <buffer> ;` ```<cr><cr>```<Up><Up>
+augroup END
+
+
+" change line numbering 
+augroup every
+  autocmd!
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
+
+" remove previous search highlighting by typing ,space while in command mode.
+" silent makes it soit doesn't echo the nohlsearch command 
+nnoremap <silent>,<space> :nohlsearch<CR>
+
+" this is supposed to look for indentation levels like in python, but need
+" something other than alt-< 
+nn <C-,> :call search ("^". matchstr (getline (line (".")+ 1), '\(\s*\)') ."\\S", 'b')<CR>^ 
+nn <C-.> :call search ("^". matchstr (getline (line (".")), '\(\s*\)') "."\\S")<CR>^ 
