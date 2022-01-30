@@ -1,0 +1,252 @@
+### Master copy for rcanzlovar
+#2021-04-02 rca
+#change to include work1-4 and boss
+#
+
+Host gator3290
+ hostname gator3290.hostgator.com 
+ IdentityFile ~/.ssh/id_rsa 
+ user anzlovar
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host gator4228
+ hostname gator4228.hostgator.com 
+ IdentityFile ~/.ssh/id_rsa 
+ user f1systems
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+host github.com
+ HostName github.com
+ IdentityFile ~/.ssh/id_rsa_github
+ PasswordAuthentication yes
+ User git
+
+Host hueypi 
+ hostname 192.168.23.101
+ IdentityFile ~/.ssh/id_rsa 
+ user pi
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host huey22 
+ hostname 192.168.23.101
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host huey
+ hostname 192.168.23.101
+ IdentityFile ~/.ssh/id_rsa 
+ user pi
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host janus 
+ hostname 192.168.23.12
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host colossus 
+ hostname 192.168.23.93
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host colossus22 
+ hostname 192.168.23.93
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host colossus2222 
+ hostname 192.168.23.93
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host bluelaptop 
+ hostname 192.168.23.43
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host homenas2 
+ hostname 192.168.23.42
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host homenas
+ hostname 192.168.23.90
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host edgar 
+ hostname 192.168.23.92
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host edgar2222 
+ hostname 192.168.23.92
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 2222 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host wall-e # the flip laptop
+ hostname 192.168.23.83
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host lenovo
+ hostname 192.168.23.76
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host boss
+ hostname 192.168.23.70
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host work1
+ hostname 192.168.23.71
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host work2
+ hostname 192.168.23.72
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host work3
+ hostname 192.168.23.73
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host work4
+ hostname 192.168.23.74
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host euclid
+ hostname 192.168.23.95
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host halwireless
+ hostname 192.168.23.48
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host hal
+ hostname 192.168.23.91
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22 
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+## F1 Systems 
+Host pbx 
+ hostname 173.160.51.229
+ IdentityFile ~/.ssh/id_rsa 
+ user root
+ Port 5022
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+
+Host w2 
+ hostname 173.160.51.227
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 5022
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host w1 
+ hostname 173.160.51.230
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 5022
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host warrendesk 
+ hostname 173.160.51.230
+ IdentityFile ~/.ssh/id_rsa 
+ user rca
+ Port 22
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host blue-f1systems
+ hostname 162.241.24.212
+ IdentityFile ~/.ssh/id_rsa
+ user fonesyst
+ port 2222
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
+
+Host eclipse
+ hostname 173.160.41.58
+ IdentityFile ~/.ssh/id_rsa
+ user root
+ port 5022
+ ForwardX11Trusted yes
+ TCPKeepAlive yes
