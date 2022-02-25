@@ -16,7 +16,7 @@ if [  -f /usr/local/bin/virtualenvwrapper.sh ]
 then
 source /usr/local/bin/virtualenvwrapper.sh
 else
-echo "no /usr/local/virtualenvwrapper.sh"
+#echo "no /usr/local/virtualenvwrapper.sh"
 do_install=1
 fi
 
