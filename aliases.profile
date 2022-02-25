@@ -49,7 +49,7 @@ alias lo="ls -o --color=always"
 alias la="ls -la --color=always"
 alias sl="ls --color=always"
 alias ll='ls -aFGlhtu --color=always'
-alias ls='ls -FGlhtu --color=always'
+alias lls='ls -FGlhtu --color=always'
 
 alias ..='cd ..'
 alias ...='cd ../..'
