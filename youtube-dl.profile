@@ -19,3 +19,7 @@ listen-to-yt() { if [[ -z "$1" ]]; then echo "Enter a search string!"; else mpv 
 
 alias ytmovie=" youtube-dl  --format bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best "
 
+#### These are the yt-dlp ways
+#
+alias _ytdlp-mp3="yt-dlp -f 'ba' -x --audio-format mp3   -o '%(title)s-%(id)s.%(ext)s'"
+

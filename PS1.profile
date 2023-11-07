@@ -9,6 +9,7 @@
 export PROMPT_DIRTRIM=3
 
 RELEASE="\[\033[01;38;5;50m\] `lsb_release -d| awk ' { for (i=2; i<=NF; i++)   printf  $i" " }'; `" 
+
 UNAME="\[\033[01;38;5;40m\]`uname -m`" 
 
 #Set prompt to indicate shell, user, host, and dir
@@ -46,7 +47,6 @@ fi
 if [ -w /etc/profile ]; then
         case $LOGNAME in
                 root) __user__="\[\033[01;52\] ROOT";;
-                leroot) __user__="\[\033[01;52\] LeRoot";;
                 *) __user__="\[\033[01;52\] SuperUser \u";;
         esac
 fi
@@ -61,6 +61,8 @@ fi
 
 #PS1="\[\e[0;33m\]\d \t\[\e[0m\]\n$__user__\[\033[01;38;5;46m\]@\[\033[01;38;5;38m\]\h:\[\e[0;35m\]\w\[\e[0m\]\n\$ "
 
+ENDSTRING='\[\e[0m\]'
+
 HOSTSTRING=
 case $HOSTNAME in 
 	penguin) HOSTSTRING='\[\033[01;38;5;208m\]\h';;
@@ -73,15 +75,27 @@ case $HOSTNAME in
 	*gator*) HOSTSTRING='\[\033[01;38;5;114m\]\h';;
 	*) HOSTSTRING='\[\033[01;38;5;38m\]\h';;
 esac
-DATESTRING='\[\e[0;33m\]\D{%a, %e-%b-%Y %k:%M:%S %Z %z}\[\e[0m\]'
-LOCSTRING='\[\e[0;40m\]\w\[\e[0m\]'
-LOCSTRING='\[\e[0;31m\]\w\[\e[0m\]'
-LOCSTRING='\[\e[01;34m\]\w\[\e[0m\]'
-ENDSTRING='\[\e[0m\]'
+
+# Use lolcat, if available, to prettify the hostname part of the prompt
+LOLCAT=/usr/games/lolcat
+if [[ -f "$LOLCAT" ]]; then
+    HOSTSTRING=`echo "${HOSTNAME}" | $LOLCAT -f`
+fi
+
+DATESTRING="\[\e[1;33m\]\D{%a, %e-%b-%Y %k:%M:%S %Z %z}${ENDSTRING}"
+
+LOCSTRING="\[\e[0;40m\]\w${ENDSTRING}"
+LOCSTRING="\[\e[0;31m\]\w${ENDSTRING}"
+LOCSTRING="\[\e[01;34m\]\w${ENDSTRING}"
+# 0 = normal brightness? 
+# 1 = brighter 
+# 2 = dimmer 
 # 3 = italics
 # 4 = underline
 # 5 = blink
 
-export PS1="$DATESTRING\n$__user__\[\033[01;38;5;46m\]@$HOSTSTRING\[\033[01;38;5;38m\]:$LOCSTRING $RELEASE $UNAME$ENDSTRING\n\$ "
+export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
+export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
+#export PS1="${DATESTRING}\n$__user__\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 
 #PS1="\s \u \h:\w\$ "
