@@ -20,8 +20,6 @@ UNAME="\[\033[01;38;5;40m\]`uname -m`"
     mustard="\[\e[1;33m\]"
     blue="\[\033[01;38;5;38m\]"
 
-
-
 #Set prompt to indicate shell, user, host, and dir
 if [ "$USER" = "rca" ]; then
     c="${yellow}c"
@@ -110,8 +108,69 @@ if [[ -f "$LOLCAT" ]]; then
     AMPERSAND=`echo "${AMPERSAND}" | $LOLCAT -f`
 fi
 
+
 export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 #export PS1="${DATESTRING}\n$__user__\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
-
+export PS1="${DATESTRING}\n ${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}
+$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 #PS1="\s \u \h:\w\$ "
+
+
+
+
+
+# Kali linux PS1 stuff: 
+
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+# The following block is surrounded by two delimiters.
+# These delimiters must not be modified. Thanks.
+# START KALI CONFIG VARIABLES
+PROMPT_ALTERNATIVE=rcaclassic
+NEWLINE_BEFORE_PROMPT=yes
+# STOP KALI CONFIG VARIABLES
+
+if [ "$color_prompt" = yes ]; then
+    # override default virtualenv indicator in prompt
+    VIRTUAL_ENV_DISABLE_PROMPT=1
+
+    prompt_color='\[\033[1;32m\]'
+    info_color='\[\033[1;34m\]'
+    prompt_symbol=㉿
+    if [ "$EUID" -eq 0 ]; then # Change prompt colors for root user
+        prompt_color='\[\033[;94m\]'
+        info_color='\[\033[1;31m\]'
+        # Skull emoji for root terminal
+        prompt_symbol=💀
+    fi
+    case "$PROMPT_ALTERNATIVE" in
+        twoline)
+            PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')-}('$info_color'\u'$prompt_symbol'\h'$prompt_color')-[\[\033[0;1m\]\w'$prompt_color']\n├──'${DATESTRING}'\n'$prompt_color'└─'$info_color'\$\[\033[0m\] ';;
+        oneline)
+            PS1='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}'$info_color'\u@\h\[\033[00m\]:'$prompt_color'\[\033[01m\]\w\[\033[00m\]\$ ';;
+        backtrack)
+            PS1='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ';;
+        rcaclassic)
+            PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING} ${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV))} \n\$ "
+#PS1="\s \u \h:\w\$ "
+    esac
+    unset prompt_color
+    unset info_color
+    unset prompt_symbol
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
