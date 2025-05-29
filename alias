@@ -1,0 +1,33 @@
+# gnome-terminal --window --maximize
+suspend_maybe ()
+{
+        local PS3='Run htop [y]/n: '
+        local TMOUT=10
+
+        local do_suspend=true
+
+        while true; do
+                if ! read -p "$PS3"; then
+                        # timeout
+                        break
+                fi
+
+                case $REPLY in
+                        [yY]*)
+                                # default case
+                                break ;;
+                        [nN]*)
+                                do_suspend=false
+                                break ;;
+                        *)
+                                echo 'Sorry, try again' >&2
+                esac
+        done
+
+        if "$do_suspend"; then
+                echo 'Suspending...'
+                ps aux
+        else
+                echo 'Will not suspend'
+        fi
+}

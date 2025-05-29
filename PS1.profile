@@ -8,6 +8,8 @@
 # 2 means we show the current dir and one above 
 export PROMPT_DIRTRIM=3
 
+VENV="(\$(basename \$(basename \$VIRTUAL_ENV)))"
+VENV="[\$VIRTUAL_ENV]"
 RELEASE="\[\033[01;38;5;50m\] `lsb_release -d| awk ' { for (i=2; i<=NF; i++)   printf  $i" " }'; `" 
 
 UNAME="\[\033[01;38;5;40m\]`uname -m`" 
@@ -113,7 +115,7 @@ export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]@${HOSTSTRING}
 export PS1="${DATESTRING}\n$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 #export PS1="${DATESTRING}\n$__user__\[\033[01;38;5;46m\]@${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
 export PS1="${DATESTRING}\n ${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}
-$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING}\n\$ "
+$__user__$ENDSTRING\[\033[01;38;5;46m\]${AMPERSAND}${HOSTSTRING}\[\033[05;38;5;38m\]:${ENDSTRING}${LOCSTRING} ${RELEASE} ${UNAME}${ENDSTRING} ${VENV}\n\$ "
 #PS1="\s \u \h:\w\$ "
 
 
