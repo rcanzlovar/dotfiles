@@ -8,6 +8,10 @@
 ##      . .d/bashrc_addendum
 ##  fi
 
+# don't do this stuff if not interactive
+[ -z "${PS1-}" ] && return
+
+
 if [[ -d ~/.d ]]; then
     for profile in $HOME/.d/*.profile; do
         thing=$(basename ${profile})
