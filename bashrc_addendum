@@ -4,6 +4,7 @@
 # hostname for local hacks
 # These lines should be appended to your .bashrc
 # Load from .d.
+# grep  '##' bashrc_addendum | sed 's/##//' >> .bashrc 
 ##  if [[ -d ~/.d && -f .d/bashrc_addendum ]]; then
 ##      . .d/bashrc_addendum
 ##  fi
