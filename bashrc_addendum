@@ -6,15 +6,16 @@
 # Load from .d.
 # grep  '##' bashrc_addendum | sed 's/##//' >> .bashrc 
 ##  if [[ -d ~/.d && -f .d/bashrc_addendum ]]; then
-##      . .d/bashrc_addendum
+##      . ~/.d/bashrc_addendum
 ##  fi
+DOTFILES=$HOME/.d
 
 # don't do this stuff if not interactive
 [ -z "${PS1-}" ] && return
 
 
 if [[ -d ~/.d ]]; then
-    for profile in $HOME/.d/*.profile; do
+    for profile in $DOTFILES/*.profile; do
         thing=$(basename ${profile})
 	if [ "_" != ${thing:0:1} ]; then
 	    # normal ones, not related to a host
