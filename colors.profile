@@ -1,10 +1,7 @@
 #  https://askubuntu.com/questions/466198/how-do-i-change-the-color-for-directories-with-ls-in-the-console
 #
 #
-#  www.zintis.net/LSCOLORS.html
-#
-#
-#
+#  https://www.zintis.net/LSCOLORS.html
 #
 ## smash it back together - v, select...
 #  :'<,'>s/\n//
@@ -55,13 +52,9 @@
 
 #LS_COLORS=$LS_COLORS:'di=33;45:ln=36' ; export LS_COLORS;
 #LS_COLORS="$LS_COLORS:di=1;33:ln=36:*.md=32" ; export LS_COLORS;
-COLORFILE=/home/rca/.local/share/lscolors.sh
-if [[ -f $COLORFILE ]]; then
-   . $COLORFILE
-fi
 
 #export LS_COLORS='di=33:ln=36:*.md=33' 
-export LS_COLORS='di=01;47;35:ln=33:*.md=01;33' 
+export LS_COLORS='di=01;36:ln=33:*.md=01;33' 
 
 
 
