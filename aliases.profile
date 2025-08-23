@@ -192,4 +192,4 @@ function weather() { echo ""; w3m http://www.usairnet.com/weather/forecast/local
 
 
 alias vi=`which vim`
-alias rebash=". ~/.bashrc"
+alias rebash="pushd ~ && . ~/.bashrc && popd"
