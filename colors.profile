@@ -6,12 +6,24 @@
 ## smash it back together - v, select...
 #  :'<,'>s/\n//
 #
+## pull it all apart so you can see what you're doing
 #:'<,'>s/:/\n:/g
+#
+#The big problem that sent me down this rabbit hole is that sometimes linux hosts
+#are set up to have directories with 777 protection to be an unreadable blue against 
+#green and nobody knows what value that is. This is probably the number one reason
+#that people end up fucking wtih this. The offending property is called "ow" as in 
+#"other writeable" and it this obnoxious setting is ow=34:42. 
+#As documented below, 42 means green background and 34 means blue foreground. Just
+#get rid of the 42 and you're golden
+#
 
 #
-# fn=xx;yy;05
-# xx - 01 =bold
-# yy=color
+# The values passed to each property can be
+# - the attribute often 01 for bold, 05 for blink etc. 
+# - the foreground color most of these are in the 30s
+# - the background color mostly in the 40s
+# fn=xx;yy;zz:
 #
 # 30 black
 # 31 red
