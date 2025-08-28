@@ -51,6 +51,10 @@ alias sl="ls --color=always"
 alias ll='ls -aFGlhtu --color=always'
 alias lls='ls -FGlhtu --color=always'
 
+# eza from arch
+alias ,ls="eza -lh --group-directories-first --icons=auto"
+
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
