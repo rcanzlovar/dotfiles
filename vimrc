@@ -14,6 +14,9 @@ command! InsertDate execute "normal! i" . strftime("%Y-%m-%d")
 set autoindent
 
 :iab lmod last_modified_on: <C-R>=strftime('%Y-%m-%d')<CR>
+:iab ldate date: <C-R>=strftime('%Y-%m-%d')<CR>
+:iab lrca  rca <C-R>=strftime('%Y-%m-%d') <CR>
+":iab ldate  <C-R>=strftime('%Y-%m-%d')<CR>
 
 set expandtab       " Convert tabs to spaces
 set tabstop=4       " A tab is 4 spaces

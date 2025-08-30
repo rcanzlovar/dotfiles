@@ -17,7 +17,7 @@ alias ms='export STATUSFILE=$CHANGELOG_DIR/status-\$(date "+%Y%m%d").txt; touch 
 # howto snippets.. ht by itself goes to default, 'ht foo' adds or creates a foo howto file 
 alias ht='function __myalias() { 
     if [[ -n $1 ]] ; 
-    then howto=$1.md; 
+    then howto=$( echo $1|sed -e "s/ /_/g" ).md; 
     else howto="default.md"; 
     fi; 
     local HOWTOFILE="$HOME/howto/$howto";
