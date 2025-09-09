@@ -66,7 +66,7 @@
 #LS_COLORS="$LS_COLORS:di=1;33:ln=36:*.md=32" ; export LS_COLORS;
 
 #export LS_COLORS='di=33:ln=36:*.md=33' 
-export LS_COLORS='di=01;36:ln=33:*.md=01;33' 
+export LS_COLORS='ow=01;36;44:di=01;36:ln=33:*.md=01;33' 
 
 
 
