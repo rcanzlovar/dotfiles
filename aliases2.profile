@@ -3,6 +3,15 @@
 alias yum='sudo yum'
 alias apt='sudo apt'
 
+
+# use nvim if it's available, else look for vim 
+
+if [ -f /usr/bin/nvim ] ; then
+    alias vi="/usr/bin/nvim"
+elif [ -f /usr/bin/vim ] ; then 
+    alias vi="/usr/bin/vim"
+fi
+
 # hs - save history to a dated file 
 # cl - change log - writes host-specific change file by date, comment time stamped inside
 # ms - my status - writes change file by date, comment time stamped inside with host nae 
