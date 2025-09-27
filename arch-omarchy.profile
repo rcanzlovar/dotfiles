@@ -3,4 +3,5 @@
 
 
 
-alias latr="ls -la --sort=modified --reverse"
+alias latr="ls -la --sort=modified "
+alias lat="ls -la --sort=modified --reverse"
