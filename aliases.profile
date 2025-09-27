@@ -196,5 +196,5 @@ function translate(){ wget -U "Mozilla/5.0" -qO - "http://translate.googleapis.c
 function weather() { echo ""; w3m http://www.usairnet.com/weather/forecast/local/?pands=$1 | grep -A 10 "${2^^}"; echo ""; curl -s http://wttr.in/$2; }
 
 
-alias vi=`which vim`
+#alias vi=`which vim`
 alias rebash="pushd ~ && . ~/.bashrc && popd"
