@@ -51,6 +51,7 @@ alias sl="ls --color=always"
 alias ll='ls -aFGlhtu --color=always'
 alias lls='ls -FGlhtu --color=always'
 
+alias _cat='/usr/bin/cat'
 alias _ls='/usr/bin/ls --color=always'
 # eza from arch
 alias ,ls="eza -lh --group-directories-first --icons=auto"
