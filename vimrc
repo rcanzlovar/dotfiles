@@ -1,4 +1,11 @@
 
+
+" highlight syntax if appropriate
+syntax on
+
+
+
+
 let @o = 'I<p style="text-align: center;">'
 let @c = 'A</p>'
 " fix EMdash control characters from facebook posts
