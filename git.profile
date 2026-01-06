@@ -5,6 +5,9 @@ function gitcon {
   git config --global user.name "Bob Anzlovar"
 }
 
+
+# How to get rid of things that accidentally got into the git repo
+## git rm -r --cached discord/Cache
 # shortcuts from https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
 # these are aliases to git commands so 'git mainbranch' shows the branch you're on (master, etc)
 # git update or git synced repulls from teh repo and rebases
