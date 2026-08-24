@@ -53,6 +53,22 @@ nnoremap <silent> <Leader>fm i---\<CR>
 :iab wiht with
 
 
+
+
+function! Fixnag()
+    let l:save_search = @/
+    let l:save_pos = getpos('.')
+
+    keepjumps %s/\v ('|1|5|10|15|20|25|30|35|40) / /ge
+    keepjumps %s/\v ('|1|5|10|15|20|25|30|35|40)$/ /ge
+
+    let @/ = l:save_search
+    call setpos('.', l:save_pos)
+endfunction
+
+" tie it to a single key
+nnoremap <Leader>f :call Fixnag()<CR>
+
 " -----------------------------------------------------------------------------
 " Insert Frontmatter Command
 " -----------------------------------------------------------------------------
