@@ -1,22 +1,29 @@
 
 
-" highlight syntax if appropriate
-syntax on
+
+set wildmenu 
+
+let mapleader=","    " leader is comman not \ 
 
 
+syntax on        " highlight syntax if appropriate
 
 
 let @o = 'I<p style="text-align: center;">'
 let @c = 'A</p>'
-" fix EMdash control characters from facebook posts
-command! FixEmDash %s/\%xe2\%x80\%x94/--/g
 
-" fix apostrophes 
-command! FixApostrophe %s/\%xe2\%x80\%x99/'/g | %s/\%xe2\%x80\%x98/'/g
+
+
+command! FixEmDash %s/\%xe2\%x80\%x94/--/g   " fix EMdash control characters from facebook posts
+
+command! FixApostrophe %s/\%xe2\%x80\%x99/'/g | %s/\%xe2\%x80\%x98/'/g       " fix apostrophes 
 
 " insert today's date 
-command! InsertDate execute "normal! i" . strftime("%Y-%m-%d")
-command! IDate execute "normal! i" . strftime("%e-%b-%Y")
+command! InsertDate execute "normal! i" . strftime("%Y-%m-%d" . "\<CR>")
+command! IDate execute "normal! i" . strftime("%e-%b-%Y" . "\<CR>" )
+
+
+
 " -----------------------------------------------------------------------------
 " Frontmatter Stub Command
 " -----------------------------------------------------------------------------
@@ -40,13 +47,16 @@ command! IDate execute "normal! i" . strftime("%e-%b-%Y")
 "   4kA          - Moves the cursor up 4 lines and enters Insert mode at
 "                  the end of the `title:` line, ready for you to type.
 
-nnoremap <silent> <Leader>fm i---\<CR>
-            \ title: <CR>
-            \ date: \=strftime('%Y-%m-%d')<CR>
-            \ published: false<CR>
-            \ keywords: []<CR>
-            \ ---<CR>
-            \ <Esc>4kA
+nnoremap <expr> <silent> <Leader>fm 
+\ "i---\<CR>title: \"stub\"\<CR>date: "
+\ . strftime('%Y-%m-%d') 
+\ . "\<CR>" 
+\ . "published: true\<CR>"
+\ . "---\<CR>" 
+\ . "\<Esc>"
+
+
+
 
 " fix some common misspellings 
 :iab teh the
@@ -129,6 +139,7 @@ set softtabstop=4   " Makes backspacing work correctly
 autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " Set indentation to 4 spaces for Perl and Shell scripts
 autocmd FileType perl,sh,bash setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" Makefiles MUST use tabs
 autocmd FileType make setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 
 
