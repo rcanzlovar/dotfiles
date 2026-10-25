@@ -7,9 +7,8 @@ alias show-systeminfo="ifconfig -a; grep MemTotal: /proc/meminfo; uname -r; grep
 # Find out what is taking so much space on your drives
 alias diskspace="du -S | sort -n -r | less"
 
-# where should we look when we do a relative path? 
-# with this, it doesn't just have to be the current directory.
-export CDPATH=".:~:/usr:/home/le"
+alias nb="source ~/bin/newblog.sh"
+
 
 # Easy way to extract archives
 extract () {
@@ -103,21 +102,6 @@ alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1
 
 # Colors for All grep commands such as grep, egrep and zgrep
 
-# Git related
-alias gs='git status'
-alias gc='git commit'
-alias ga='git add'
-alias gd='git diff'
-alias gb='git branch'
-alias gl='git log'
-alias gsb='git show-branch'
-alias gco='git checkout'
-alias gg='git grep'
-alias gk='gitk --all'
-alias gr='git rebase'
-alias gri='git rebase --interactive'
-alias gcp='git cherry-pick'
-alias grm='git rm'
 
 ### directory navigation thing. 
 # 'cd' to the most recently modified directory in $PWD

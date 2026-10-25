@@ -6,6 +6,24 @@ function gitcon {
 }
 
 
+
+# Git related
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gd='git diff'
+alias gb='git branch'
+alias gl='git log'
+alias gsb='git show-branch'
+alias gco='git checkout'
+alias gg='git grep'
+alias gk='gitk --all'
+alias gr='git rebase'
+alias gri='git rebase --interactive'
+alias gcp='git cherry-pick'
+alias grm='git rm'
+
+
 # How to get rid of things that accidentally got into the git repo
 ## git rm -r --cached discord/Cache
 # shortcuts from https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
