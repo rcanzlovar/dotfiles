@@ -52,7 +52,19 @@ endfunction
 
 
 
+function! TGLprep()
+    let l:save_search = @/
+    let l:save_pos = getpos('.')
+    keepjumps %s/<h2 id="\(.*\)">/\rZZZ \1 YYY\r<h2>/
+    keepjumps %s/index.html//
+    """keepjumps %s/<script.*<\/script>//e
+    keepjumps %s/<script\_.\{-}<\/script>//g
 
+    let @/ = l:save_search
+    call setpos('.', l:save_pos)
+
+    """ call InsertFrontMatter()
+endfunction
 
 function! AfterMD()
     let l:save_search = @/
